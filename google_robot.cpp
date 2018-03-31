@@ -92,24 +92,23 @@ public:
 		visited[{i,j}] = 1;
 		clean(); 
 
-		for (int k = 0; k < 2; ++k)
+		for (int k = 0; k < 2; ++k) // turn 180 first, to get the dir order below
 			turn90(); 
 
-		for (int k = 0; k < 4; ++k){ // left, straight, right
+		for (int k = 0; k < 4; ++k){ // left, straight, right, backward
 			turn90(); 
 			int x, y;
 			x = alongDirection1StepPos().first, y = alongDirection1StepPos().second;
 
-			if (visited[{x, y}])
+			if (visited[{x, y}]) 
 				continue;
 			if (!move())
 				continue;
 
 			dfs(visited); 
 		}
-		move();
-		mtx.backtrack(i, j); 
-		turn90(); turn90();
+		move(); // backtrack
+		turn90(); turn90(); // recover direction
 	}
 };
 
@@ -124,11 +123,17 @@ int main(){
 		{ 0, 1, 1, 0, 1, 0 },
 		{ 0, 0, 1, 0, 1, 0 },
 	}; // 6x6
+
 	Matrix b(a); 
+
 	Robot c(b); 
+
 	b.setRobotInit(2, 2); 
+
 	c.broomAll();
 }
+
+
 
 // OUTPUT: 
 //0 1 1 2 1 2
