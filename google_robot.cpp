@@ -124,13 +124,9 @@ int main(){
 		{ 0, 1, 1, 0, 1, 0 },
 		{ 0, 0, 1, 0, 1, 0 },
 	}; // 6x6
-
 	Matrix b(a); 
-
 	Robot c(b); 
-
 	b.setRobotInit(2, 2); 
-
 	c.broomAll();
 }
 
