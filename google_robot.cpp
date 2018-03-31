@@ -29,7 +29,7 @@ public:
 			return; 
 		if (!move())
 			return; 
-		if (abs(x) > 3 || abs(y) > 3)
+		if (abs(x) > 3 || abs(y) > 3) // manually set the boundary of map
 			return; 
 
 		cout << x << " " << y << endl; 
