@@ -45,7 +45,7 @@ public:
 class Robot {
 public:
 	int i, j; 
-	int direction; 
+	int direction; // dir: up,right,down,left, 0, 1, 2, 3
 	Matrix& mtx; 
 	map<PII, int> visited;
 
